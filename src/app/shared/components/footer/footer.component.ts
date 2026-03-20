@@ -74,7 +74,7 @@ import { I18nService } from '../../../core/services/i18n.service';
               </li>
               <li>
                 <i class="fas fa-envelope"></i>
-                <span>info@getatos-safari.com</span>
+                <span>info&#64;getatos-safari.com</span>
               </li>
             </ul>
           </div>

@@ -68,7 +68,7 @@ import { Tour } from '../../models/tour.model';
                 <img [src]="tour.images[0]" [alt]="tour.name">
                 <span class="tour-badge">{{ tour.category }}</span>
                 @if (tour.discountPrice) {
-                  <span class="tour-discount">SAVE ${{ tour.price - tour.discountPrice }}</span>
+                  <span class="tour-discount">SAVE \${{ tour.price - tour.discountPrice }}</span>
                 }
               </div>
               <div class="tour-content">

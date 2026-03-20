@@ -10,10 +10,6 @@ export const routes: Routes = [
     loadComponent: () => import('./features/tours/tours.component').then(m => m.ToursComponent)
   },
   {
-    path: 'tours/:slug',
-    loadComponent: () => import('./features/tours/tour-detail.component').then(m => m.TourDetailComponent)
-  },
-  {
     path: 'backoffice',
     loadComponent: () => import('./features/backoffice/backoffice.component').then(m => m.BackofficeComponent)
   },
