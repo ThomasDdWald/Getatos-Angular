@@ -1,37 +1,37 @@
 // Getatos Safari - Global Styles
-// Design System Variables
+// Design System Variables - Matching Tailwind Design
 
-// Color Palette
-$primary: #1A5F4A;
-$primary-dark: #134436;
-$primary-light: #2A7D62;
+// Color Palette - Dark Theme
+$primary: #2d5a27;
+$primary-dark: #1e4620;
+$primary-light: #3d7a34;
 $secondary: #D4A853;
 $secondary-dark: #B8923F;
 $secondary-light: #E5C47A;
-$accent: #E85D04;
-$accent-dark: #C44E03;
-$accent-light: #FF7B2E;
+$accent: #1a365d;
+$accent-dark: #0f2340;
+$accent-light: #2a4a7f;
 
-// Neutrals
-$background: #FAF8F5;
-$background-alt: #F5F5F0;
-$surface: #FFFFFF;
-$dark: #2D3436;
-$dark-light: #4A5568;
-$light: #F5F5F0;
-$border: #E2E8F0;
-$border-dark: #CBD5E1;
+// Neutrals - Dark Theme
+$background: #1a365d;
+$background-alt: #0f2340;
+$surface: #1e3a5f;
+$dark: #f8f8f6;
+$dark-light: #e2e8f0;
+$light: #f8f8f6;
+$border: #2a4a7f;
+$border-dark: #3d5a8f;
 
 // Text Colors
-$text-primary: #1A202C;
-$text-secondary: #4A5568;
-$text-muted: #718096;
-$text-light: #A0AEC0;
+$text-primary: #f8f8f6;
+$text-secondary: #cbd5e1;
+$text-muted: #94a3b8;
+$text-light: #64748b;
 
 // Typography
-$font-heading: 'Playfair Display', serif;
-$font-body: 'Source Sans 3', sans-serif;
-$font-accent: 'Bebas Neue', sans-serif;
+$font-heading: 'Plus Jakarta Sans', sans-serif;
+$font-body: 'Plus Jakarta Sans', sans-serif;
+$font-accent: 'Plus Jakarta Sans', sans-serif;
 
 // Spacing
 $spacing-xs: 0.25rem;

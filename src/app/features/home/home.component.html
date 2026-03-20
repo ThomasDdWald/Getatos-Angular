@@ -32,6 +32,36 @@
       <span class="section-subtitle">{{ featuredSubtitle }}</span>
       <h2>{{ featuredTitle }}</h2>
     </div>
+    <div class="tours-grid">
+      <div class="tour-card" *ngFor="let tour of featuredTours">
+        <div class="tour-image">
+          <img [src]="tour.images[0]" [alt]="tour.name">
+          <span class="tour-badge">{{ tour.category }}</span>
+          <span class="tour-discount" *ngIf="tour.discountPrice">SAVE ${{ tour.price - tour.discountPrice }}</span>
+        </div>
+        <div class="tour-content">
+          <div class="tour-meta">
+            <span><i class="fas fa-map-marker-alt"></i> {{ tour.destination }}</span>
+            <span><i class="fas fa-clock"></i> {{ tour.duration }} {{ daysLabel }}</span>
+          </div>
+          <h3>{{ tour.name }}</h3>
+          <p>{{ tour.shortDescription }}</p>
+          <div class="tour-footer">
+            <div class="tour-price">
+              <span class="price-old" *ngIf="tour.discountPrice">${{ tour.price }}</span>
+              <span class="price-new">${{ tour.discountPrice || tour.price }}</span>
+              <span class="price-per">{{ perPersonLabel }}</span>
+            </div>
+            <div class="tour-rating">
+              <i class="fas fa-star"></i>
+              <span>{{ tour.rating }}</span>
+              <span class="reviews">({{ tour.reviewCount }})</span>
+            </div>
+          </div>
+          <a routerLink="/tours" class="btn btn-primary">{{ viewDetailsLabel }}</a>
+        </div>
+      </div>
+    </div>
     <div class="section-cta">
       <a routerLink="/tours" class="btn btn-secondary btn-lg">View All Tours <i class="fas fa-arrow-right"></i></a>
     </div>
