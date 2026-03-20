@@ -1,13 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
-import { I18nService, Language, LanguageConfig, SUPPORTED_LANGUAGES } from '../../../core/services/i18n.service';
-import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
-  imports: [RouterModule]
+  styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
   isScrolled = false;
@@ -15,48 +11,22 @@ export class NavbarComponent implements OnInit {
   showMobileMenu = false;
   isAuthenticated = false;
   currentUser: any = null;
-  
-  languages = SUPPORTED_LANGUAGES;
-  currentLang: LanguageConfig = SUPPORTED_LANGUAGES[0];
+  languages = [
+    { code: 'en', flag: 'EN', name: 'English' },
+    { code: 'de', flag: 'DE', name: 'Deutsch' },
+    { code: 'es', flag: 'ES', name: 'Español' },
+    { code: 'fr', flag: 'FR', name: 'Français' },
+    { code: 'zh', flag: 'ZH', name: '中文' }
+  ];
+  currentLang: any = this.languages[0];
 
-  constructor(
-    public i18n: I18nService,
-    private authService: AuthService
-  ) {}
+  constructor() {}
 
-  ngOnInit(): void {
-    this.authService.authState$.subscribe(state => {
-      this.isAuthenticated = state.isAuthenticated;
-      this.currentUser = state.user;
-    });
+  ngOnInit(): void {}
 
-    this.i18n.currentLanguage$.subscribe(lang => {
-      this.currentLang = this.languages.find(l => l.code === lang) || this.languages[0];
-    });
-
-    window.addEventListener('scroll', () => {
-      this.isScrolled = window.scrollY > 50;
-    });
-  }
-
-  toggleLangMenu(): void {
-    this.showLangMenu = !this.showLangMenu;
-  }
-
-  toggleMobileMenu(): void {
-    this.showMobileMenu = !this.showMobileMenu;
-  }
-
-  closeMobileMenu(): void {
-    this.showMobileMenu = false;
-  }
-
-  setLanguage(lang: Language): void {
-    this.i18n.setLanguage(lang);
-    this.showLangMenu = false;
-  }
-
-  logout(): void {
-    this.authService.logout();
-  }
+  toggleLangMenu(): void { this.showLangMenu = !this.showLangMenu; }
+  toggleMobileMenu(): void { this.showMobileMenu = !this.showMobileMenu; }
+  closeMobileMenu(): void { this.showMobileMenu = false; }
+  setLanguage(lang: any): void { this.currentLang = lang; this.showLangMenu = false; }
+  logout(): void {}
 }
