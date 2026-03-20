@@ -26,27 +26,27 @@ export interface Tour {
   slug: string;
   description: string;
   shortDescription: string;
-  duration: number; // in days
+  duration: number;
   destination: string;
   category: TourCategory;
   price: number;
-  discountPrice?: number;
+  discountPrice?: number | null;
   images: string[];
   highlights: string[];
-  itinerary: ItineraryDay[];
-  included: string[];
-  excluded: string[];
-  difficulty: 'EASY' | 'MODERATE' | 'CHALLENGING';
-  minParticipants: number;
-  maxParticipants: number;
-  availability: TourAvailability[];
+  itinerary?: ItineraryDay[];
+  included?: string[];
+  excluded?: string[];
+  difficulty?: 'EASY' | 'MODERATE' | 'CHALLENGING';
+  minParticipants?: number;
+  maxParticipants?: number;
+  availability?: TourAvailability[];
   rating: number;
   reviewCount: number;
-  featured: boolean;
-  isActive: boolean;
+  featured?: boolean;
+  isActive?: boolean;
 }
 
-export type TourCategory = 'WILDLIFE' | 'CULTURAL' | 'ADVENTURE' | 'LUXURY' | 'FAMILY' | 'PHOTOGRAPHY';
+export type TourCategory = 'safari' | 'trekking' | 'beach' | 'combo' | 'cultural';
 
 export interface ItineraryDay {
   day: number;
