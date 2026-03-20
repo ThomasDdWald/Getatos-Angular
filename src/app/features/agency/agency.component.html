@@ -1,21 +1,61 @@
 <div class="agency-wrapper">
   <aside class="sidebar">
-    <div class="sidebar-header"><h3><i class="fas fa-handshake"></i> Agency Portal</h3><p>Partner Dashboard</p></div>
+    <div class="sidebar-header">
+      <h3><i class="fas fa-handshake"></i> Agency Portal</h3>
+      <p>Partner Dashboard</p>
+    </div>
     <nav class="sidebar-nav">
-      <a routerLink="/agency" routerLinkActive="active"><i class="fas fa-tachometer-alt"></i> {{ i18n.t('agency.dashboard') }}</a>
-      <a routerLink="/agency"><i class="fas fa-calendar-check"></i> {{ i18n.t('agency.bookings') }}</a>
-      <a routerLink="/agency"><i class="fas fa-bolt"></i> {{ i18n.t('agency.quickBook') }}</a>
-      <a routerLink="/agency"><i class="fas fa-file-invoice-dollar"></i> {{ i18n.t('agency.quotes') }}</a>
+      <a routerLink="/agency" routerLinkActive="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a routerLink="/agency"><i class="fas fa-calendar-check"></i> Bookings</a>
+      <a routerLink="/agency"><i class="fas fa-bolt"></i> Quick Book</a>
+      <a routerLink="/agency"><i class="fas fa-file-invoice-dollar"></i> Quotes</a>
     </nav>
   </aside>
   <main class="main-content">
-    <header class="content-header"><div><h2>{{ i18n.t('agency.dashboard') }}</h2><p>Welcome back! Here's your sales overview</p></div></header>
+    <header class="content-header">
+      <div>
+        <h2>Dashboard</h2>
+        <p>Welcome back! Here's your sales overview</p>
+      </div>
+    </header>
     <div class="stats-grid">
-      <div class="stat-card"><div class="stat-icon sales"><i class="fas fa-chart-line"></i></div><div class="stat-info"><span class="stat-label">{{ i18n.t('agency.totalSales') }}</span><span class="stat-value">${{ agencyStats.totalRevenue | number }}</span></div></div>
-      <div class="stat-card"><div class="stat-icon commission"><i class="fas fa-percentage"></i></div><div class="stat-info"><span class="stat-label">{{ i18n.t('agency.totalCommission') }}</span><span class="stat-value">${{ agencyStats.commission | number }}</span></div></div>
-      <div class="stat-card"><div class="stat-icon bookings"><i class="fas fa-calendar"></i></div><div class="stat-info"><span class="stat-label">Total Bookings</span><span class="stat-value">{{ agencyStats.totalBookings }}</span></div></div>
-      <div class="stat-card"><div class="stat-icon clients"><i class="fas fa-user-friends"></i></div><div class="stat-info"><span class="stat-label">Active Clients</span><span class="stat-value">{{ agencyStats.activeClients }}</span></div></div>
+      <div class="stat-card">
+        <div class="stat-icon sales"><i class="fas fa-chart-line"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">Total Sales</span>
+          <span class="stat-value">${{ agencyStats.totalRevenue | number }}</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon commission"><i class="fas fa-percentage"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">Total Commission</span>
+          <span class="stat-value">${{ agencyStats.commission | number }}</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon bookings"><i class="fas fa-calendar"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">Total Bookings</span>
+          <span class="stat-value">{{ agencyStats.totalBookings }}</span>
+        </div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-icon clients"><i class="fas fa-user-friends"></i></div>
+        <div class="stat-info">
+          <span class="stat-label">Active Clients</span>
+          <span class="stat-value">{{ agencyStats.activeClients }}</span>
+        </div>
+      </div>
     </div>
-    <div class="commission-banner"><div class="commission-info"><div class="commission-rate"><span class="rate-label">Your Commission Rate</span><span class="rate-value">15%</span></div><p>Earn 15% commission on every booking you generate.</p></div></div>
+    <div class="commission-banner">
+      <div class="commission-info">
+        <div class="commission-rate">
+          <span class="rate-label">Your Commission Rate</span>
+          <span class="rate-value">15%</span>
+        </div>
+        <p>Earn 15% commission on every booking you generate.</p>
+      </div>
+    </div>
   </main>
 </div>

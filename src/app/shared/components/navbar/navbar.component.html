@@ -5,18 +5,18 @@
         <img src="https://getatos-safari.com/wp-content/uploads/2025/01/Safari-logo-with-out-bg.png" alt="Getatos Safari" class="logo-img">
       </a>
       <div class="nav-links">
-        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">{{ i18n.t('nav.home') }}</a>
-        <a routerLink="/tours" routerLinkActive="active">{{ i18n.t('nav.tours') }}</a>
-        <a routerLink="/about" routerLinkActive="active">{{ i18n.t('nav.about') }}</a>
-        <a routerLink="/contact" routerLinkActive="active">{{ i18n.t('nav.contact') }}</a>
+        <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Home</a>
+        <a routerLink="/tours" routerLinkActive="active">Tours</a>
+        <a routerLink="/about" routerLinkActive="active">About</a>
+        <a routerLink="/contact" routerLinkActive="active">Contact</a>
         <ng-container *ngIf="!isAuthenticated">
-          <a routerLink="/login" class="nav-cta">{{ i18n.t('nav.login') }}</a>
+          <a routerLink="/login" class="nav-cta">Login</a>
         </ng-container>
         <ng-container *ngIf="isAuthenticated">
-          <a *ngIf="currentUser?.role === 'ADMIN' || currentUser?.role === 'STAFF'" routerLink="/backoffice" routerLinkActive="active">{{ i18n.t('nav.backoffice') }}</a>
-          <a *ngIf="currentUser?.role === 'AGENCY'" routerLink="/agency" routerLinkActive="active">{{ i18n.t('nav.agency') }}</a>
-          <a routerLink="/dashboard" routerLinkActive="active">{{ i18n.t('nav.dashboard') }}</a>
-          <button (click)="logout()" class="btn-logout">{{ i18n.t('nav.logout') }}</button>
+          <a routerLink="/backoffice" routerLinkActive="active">Backoffice</a>
+          <a routerLink="/agency" routerLinkActive="active">Agency</a>
+          <a routerLink="/dashboard" routerLinkActive="active">Dashboard</a>
+          <button (click)="logout()" class="btn-logout">Logout</button>
         </ng-container>
       </div>
       <div class="language-switcher">
@@ -25,9 +25,9 @@
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="lang-dropdown" *ngIf="showLangMenu">
-          <button *ngFor="let lang of languages" class="lang-option" [class.active]="lang.code === currentLang.code" (click)="setLanguage(lang.code)">
+          <button *ngFor="let lang of languages" class="lang-option" [class.active]="lang.code === currentLang.code" (click)="setLanguage(lang)">
             <span class="lang-flag">{{ lang.flag }}</span>
-            <span class="lang-name">{{ lang.nativeName }}</span>
+            <span class="lang-name">{{ lang.name }}</span>
           </button>
         </div>
       </div>
@@ -36,16 +36,16 @@
       </button>
     </div>
     <div class="mobile-nav" *ngIf="showMobileMenu">
-      <a routerLink="/" (click)="closeMobileMenu()">{{ i18n.t('nav.home') }}</a>
-      <a routerLink="/tours" (click)="closeMobileMenu()">{{ i18n.t('nav.tours') }}</a>
-      <a routerLink="/about" (click)="closeMobileMenu()">{{ i18n.t('nav.about') }}</a>
-      <a routerLink="/contact" (click)="closeMobileMenu()">{{ i18n.t('nav.contact') }}</a>
+      <a routerLink="/" (click)="closeMobileMenu()">Home</a>
+      <a routerLink="/tours" (click)="closeMobileMenu()">Tours</a>
+      <a routerLink="/about" (click)="closeMobileMenu()">About</a>
+      <a routerLink="/contact" (click)="closeMobileMenu()">Contact</a>
       <ng-container *ngIf="!isAuthenticated">
-        <a routerLink="/login" (click)="closeMobileMenu()">{{ i18n.t('nav.login') }}</a>
+        <a routerLink="/login" (click)="closeMobileMenu()">Login</a>
       </ng-container>
       <ng-container *ngIf="isAuthenticated">
-        <a routerLink="/dashboard" (click)="closeMobileMenu()">{{ i18n.t('nav.dashboard') }}</a>
-        <button (click)="logout(); closeMobileMenu()">{{ i18n.t('nav.logout') }}</button>
+        <a routerLink="/dashboard" (click)="closeMobileMenu()">Dashboard</a>
+        <button (click)="logout(); closeMobileMenu()">Logout</button>
       </ng-container>
     </div>
   </div>

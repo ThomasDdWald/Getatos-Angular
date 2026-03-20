@@ -1,6 +1,6 @@
 <section class="page-header">
   <div class="container">
-    <h1>{{ i18n.t('tours.title') }}</h1>
+    <h1>Our Tours</h1>
     <p>Discover our amazing safari experiences</p>
   </div>
 </section>
@@ -35,48 +35,9 @@
         </select>
       </div>
     </div>
-
     <div class="results-info">
       <p>Showing {{ filteredTours.length }} tours</p>
     </div>
-
-    <div class="tours-grid">
-      <div class="tour-card" *ngFor="let tour of filteredTours">
-        <div class="tour-image">
-          <img [src]="tour.images[0]" [alt]="tour.name">
-          <span class="tour-badge">{{ getCategoryLabel(tour.category) }}</span>
-          <span class="tour-discount" *ngIf="tour.discountPrice">SAVE ${{ tour.price - tour.discountPrice }}</span>
-        </div>
-        <div class="tour-content">
-          <div class="tour-meta">
-            <span><i class="fas fa-map-marker-alt"></i> {{ tour.destination }}</span>
-            <span><i class="fas fa-clock"></i> {{ tour.duration }} {{ i18n.t('tours.days') }}</span>
-          </div>
-          <h3>{{ tour.name }}</h3>
-          <p>{{ tour.shortDescription }}</p>
-          <div class="tour-features">
-            <span class="feature-tag" *ngFor="let h of tour.highlights.slice(0, 3)"><i class="fas fa-check"></i> {{ h }}</span>
-          </div>
-          <div class="tour-footer">
-            <div class="tour-price">
-              <span class="price-old" *ngIf="tour.discountPrice">${{ tour.price }}</span>
-              <span class="price-new">${{ tour.discountPrice || tour.price }}</span>
-              <span class="price-per">{{ i18n.t('tours.perPerson') }}</span>
-            </div>
-            <div class="tour-rating">
-              <i class="fas fa-star"></i>
-              <span>{{ tour.rating }}</span>
-              <span class="reviews">({{ tour.reviewCount }})</span>
-            </div>
-          </div>
-          <div class="tour-actions">
-            <a routerLink="/tours" class="btn btn-outline">{{ i18n.t('tours.viewDetails') }}</a>
-            <a routerLink="/tours" class="btn btn-primary">{{ i18n.t('tours.bookNow') }}</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
     <div class="no-results" *ngIf="filteredTours.length === 0">
       <i class="fas fa-search"></i>
       <h3>No tours found</h3>

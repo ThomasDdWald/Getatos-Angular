@@ -13,29 +13,14 @@
           {{ heroCta }}
           <i class="fas fa-arrow-right"></i>
         </a>
-        <a href="#featured" class="btn btn-outline btn-lg">
-          View Featured
-        </a>
+        <a href="#featured" class="btn btn-outline btn-lg">View Featured</a>
       </div>
     </div>
-    
     <div class="hero-stats">
-      <div class="stat">
-        <span class="stat-number">15+</span>
-        <span class="stat-label">Years Experience</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">10K+</span>
-        <span class="stat-label">Happy Travelers</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">50+</span>
-        <span class="stat-label">Safari Tours</span>
-      </div>
-      <div class="stat">
-        <span class="stat-number">98%</span>
-        <span class="stat-label">Satisfaction</span>
-      </div>
+      <div class="stat"><span class="stat-number">15+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat"><span class="stat-number">10K+</span><span class="stat-label">Happy Travelers</span></div>
+      <div class="stat"><span class="stat-number">50+</span><span class="stat-label">Safari Tours</span></div>
+      <div class="stat"><span class="stat-number">98%</span><span class="stat-label">Satisfaction</span></div>
     </div>
   </div>
 </section>
@@ -47,45 +32,8 @@
       <span class="section-subtitle">{{ featuredSubtitle }}</span>
       <h2>{{ featuredTitle }}</h2>
     </div>
-
-    <div class="tours-grid">
-      <div class="tour-card" *ngFor="let tour of featuredTours">
-        <div class="tour-image">
-          <img [src]="tour.images[0]" [alt]="tour.name">
-          <span class="tour-badge">{{ tour.category }}</span>
-          <span class="tour-discount" *ngIf="tour.discountPrice">SAVE ${{ tour.price - tour.discountPrice }}</span>
-        </div>
-        <div class="tour-content">
-          <div class="tour-meta">
-            <span><i class="fas fa-map-marker-alt"></i> {{ tour.destination }}</span>
-            <span><i class="fas fa-clock"></i> {{ tour.duration }} {{ daysLabel }}</span>
-          </div>
-          <h3>{{ tour.name }}</h3>
-          <p>{{ tour.shortDescription }}</p>
-          <div class="tour-footer">
-            <div class="tour-price">
-              <span class="price-old" *ngIf="tour.discountPrice">${{ tour.price }}</span>
-              <span class="price-new">${{ tour.discountPrice || tour.price }}</span>
-              <span class="price-per">{{ perPersonLabel }}</span>
-            </div>
-            <div class="tour-rating">
-              <i class="fas fa-star"></i>
-              <span>{{ tour.rating }}</span>
-              <span class="reviews">({{ tour.reviewCount }})</span>
-            </div>
-          </div>
-          <a routerLink="/tours" class="btn btn-primary">
-            {{ viewDetailsLabel }}
-          </a>
-        </div>
-      </div>
-    </div>
-
     <div class="section-cta">
-      <a routerLink="/tours" class="btn btn-secondary btn-lg">
-        View All Tours
-        <i class="fas fa-arrow-right"></i>
-      </a>
+      <a routerLink="/tours" class="btn btn-secondary btn-lg">View All Tours <i class="fas fa-arrow-right"></i></a>
     </div>
   </div>
 </section>
@@ -97,33 +45,24 @@
       <span class="section-subtitle">{{ whySubtitle }}</span>
       <h2>{{ whyTitle }}</h2>
     </div>
-
     <div class="features-grid">
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-globe-africa"></i>
-        </div>
+        <div class="feature-icon"><i class="fas fa-globe-africa"></i></div>
         <h3>Local Experts</h3>
         <p>Our team consists of Tanzanian-born guides with deep knowledge of local wildlife and culture.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-shield-alt"></i>
-        </div>
+        <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
         <h3>Safety First</h3>
         <p>Your safety is our priority. We maintain the highest safety standards and insurance coverage.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-hand-holding-usd"></i>
-        </div>
+        <div class="feature-icon"><i class="fas fa-hand-holding-usd"></i></div>
         <h3>Best Value</h3>
         <p>Competitive pricing with no hidden fees. We offer transparent pricing and flexible payment options.</p>
       </div>
       <div class="feature-card">
-        <div class="feature-icon">
-          <i class="fas fa-heart"></i>
-        </div>
+        <div class="feature-icon"><i class="fas fa-heart"></i></div>
         <h3>Personalized Service</h3>
         <p>Every trip is customized to your preferences. We listen and create your perfect safari experience.</p>
       </div>
@@ -138,12 +77,8 @@
       <h2>{{ ctaTitle }}</h2>
       <p>{{ ctaSubtitle }}</p>
       <div class="cta-actions">
-        <a routerLink="/tours" class="btn btn-accent btn-lg">
-          {{ ctaButton }}
-        </a>
-        <a routerLink="/contact" class="btn btn-outline btn-lg">
-          Contact Us
-        </a>
+        <a routerLink="/tours" class="btn btn-accent btn-lg">{{ ctaButton }}</a>
+        <a routerLink="/contact" class="btn btn-outline btn-lg">Contact Us</a>
       </div>
     </div>
   </div>

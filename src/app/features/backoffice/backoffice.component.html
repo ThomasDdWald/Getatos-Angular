@@ -4,90 +4,47 @@
       <h3><i class="fas fa-cogs"></i> Backoffice</h3>
     </div>
     <nav class="sidebar-nav">
-      <a routerLink="/backoffice" routerLinkActive="active"><i class="fas fa-tachometer-alt"></i> {{ i18n.t('backoffice.dashboard') }}</a>
-      <a routerLink="/backoffice"><i class="fas fa-calendar-check"></i> {{ i18n.t('backoffice.bookings') }}<span class="badge" *ngIf="pendingBookings > 0">{{ pendingBookings }}</span></a>
-      <a routerLink="/backoffice"><i class="fas fa-map"></i> {{ i18n.t('backoffice.tours') }}</a>
-      <a routerLink="/backoffice"><i class="fas fa-users"></i> {{ i18n.t('backoffice.customers') }}</a>
-      <a routerLink="/backoffice"><i class="fas fa-chart-bar"></i> {{ i18n.t('backoffice.reports') }}</a>
+      <a routerLink="/backoffice" routerLinkActive="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+      <a routerLink="/backoffice"><i class="fas fa-calendar-check"></i> Bookings<span class="badge" *ngIf="pendingBookings > 0">{{ pendingBookings }}</span></a>
+      <a routerLink="/backoffice"><i class="fas fa-map"></i> Tours</a>
+      <a routerLink="/backoffice"><i class="fas fa-users"></i> Customers</a>
+      <a routerLink="/backoffice"><i class="fas fa-chart-bar"></i> Reports</a>
     </nav>
   </aside>
   <main class="main-content">
     <header class="content-header">
-      <h2>{{ i18n.t('backoffice.dashboard') }}</h2>
+      <h2>Dashboard</h2>
       <span class="date">{{ currentDate | date:'fullDate' }}</span>
     </header>
     <div class="stats-grid">
       <div class="stat-card">
         <div class="stat-icon revenue"><i class="fas fa-dollar-sign"></i></div>
         <div class="stat-info">
-          <span class="stat-label">{{ i18n.t('backoffice.totalRevenue') }}</span>
-          <span class="stat-value">${{ stats?.totalRevenue | number }}</span>
-          <span class="stat-change positive">+{{ stats?.revenueChange }}%</span>
+          <span class="stat-label">Total Revenue</span>
+          <span class="stat-value">$0</span>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-icon bookings"><i class="fas fa-calendar"></i></div>
         <div class="stat-info">
-          <span class="stat-label">{{ i18n.t('backoffice.totalBookings') }}</span>
-          <span class="stat-value">{{ stats?.totalBookings }}</span>
-          <span class="stat-change positive">+{{ stats?.bookingsChange }}%</span>
+          <span class="stat-label">Total Bookings</span>
+          <span class="stat-value">0</span>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-icon customers"><i class="fas fa-user-friends"></i></div>
         <div class="stat-info">
-          <span class="stat-label">{{ i18n.t('backoffice.activeCustomers') }}</span>
-          <span class="stat-value">{{ stats?.activeCustomers }}</span>
-          <span class="stat-change positive">+{{ stats?.customerChange }}%</span>
+          <span class="stat-label">Active Customers</span>
+          <span class="stat-value">0</span>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-icon rating"><i class="fas fa-star"></i></div>
         <div class="stat-info">
           <span class="stat-label">Average Rating</span>
-          <span class="stat-value">{{ stats?.averageRating }}</span>
-          <span class="stat-change positive">Excellent</span>
+          <span class="stat-value">0</span>
         </div>
       </div>
-    </div>
-    <div class="content-section">
-      <div class="section-header">
-        <h3>{{ i18n.t('backoffice.recentBookings') }}</h3>
-      </div>
-      <table class="data-table">
-        <thead>
-          <tr>
-            <th>Reference</th>
-            <th>Customer</th>
-            <th>Tour</th>
-            <th>Date</th>
-            <th>Status</th>
-            <th>Amount</th>
-            <th>Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let booking of recentBookings">
-            <td class="ref-cell">{{ booking.bookingReference }}</td>
-            <td>
-              <div class="customer-cell">
-                <span class="customer-name">{{ booking.participants[0]?.firstName }} {{ booking.participants[0]?.lastName }}</span>
-                <span class="customer-email">{{ booking.participants[0]?.email }}</span>
-              </div>
-            </td>
-            <td>{{ booking.tour?.name | slice:0:30 }}...</td>
-            <td>{{ booking.startDate | date:'mediumDate' }}</td>
-            <td><span class="status-badge" [class]="getStatusClass(booking.status)">{{ getStatusLabel(booking.status) }}</span></td>
-            <td class="amount">${{ booking.totalPrice | number }}</td>
-            <td>
-              <div class="action-buttons">
-                <button class="btn-icon" *ngIf="booking.status === 'PENDING'" (click)="confirmBooking(booking)" title="Confirm"><i class="fas fa-check"></i></button>
-                <button class="btn-icon warning" *ngIf="booking.status === 'CONFIRMED'" (click)="cancelBooking(booking)" title="Cancel"><i class="fas fa-times"></i></button>
-              </div>
-            </td>
-          </tr>
-        </tbody>
-      </table>
     </div>
   </main>
 </div>
