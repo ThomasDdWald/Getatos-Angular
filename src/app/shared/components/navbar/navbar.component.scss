@@ -1,0 +1,129 @@
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+.navbar.scrolled {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+.navbar-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+.logo .logo-img {
+  height: 50px;
+  width: auto;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.nav-links a {
+  font-weight: 500;
+  color: #2D3436;
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+.nav-links a:hover, .nav-links a.active {
+  color: #1A5F4A;
+}
+.nav-links .nav-cta {
+  background: #1A5F4A;
+  color: white !important;
+  padding: 0.5rem 1.5rem;
+  border-radius: 8px;
+}
+.nav-links .nav-cta:hover {
+  background: #134436;
+}
+.btn-logout {
+  background: none;
+  border: none;
+  font-weight: 500;
+  color: #E85D04;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+}
+.language-switcher {
+  position: relative;
+}
+.lang-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: none;
+  border: 2px solid #E2E8F0;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.lang-btn:hover {
+  border-color: #1A5F4A;
+}
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  min-width: 180px;
+}
+.lang-option {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-align: left;
+}
+.lang-option:hover {
+  background: #F5F5F0;
+}
+.lang-option.active {
+  background: rgba(26, 95, 74, 0.1);
+  color: #1A5F4A;
+}
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #2D3436;
+  cursor: pointer;
+}
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  padding: 1rem 0;
+  border-top: 1px solid #E2E8F0;
+}
+.mobile-nav a, .mobile-nav button {
+  display: block;
+  padding: 0.75rem 0;
+  font-weight: 500;
+  color: #2D3436;
+  text-decoration: none;
+  background: none;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+}
+@media (max-width: 1024px) {
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+  .mobile-nav { display: flex; }
+}

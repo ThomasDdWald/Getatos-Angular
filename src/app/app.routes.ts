@@ -1,28 +1,15 @@
 import { Routes } from '@angular/router';
+import { HomeComponent } from './features/home/home.component';
+import { ToursComponent } from './features/tours/tours.component';
+import { BackofficeComponent } from './features/backoffice/backoffice.component';
+import { AgencyComponent } from './features/agency/agency.component';
+import { LoginComponent } from './features/auth/login.component';
 
 export const routes: Routes = [
-  {
-    path: '',
-    loadComponent: () => import('./features/home/home.component').then(m => m.HomeComponent)
-  },
-  {
-    path: 'tours',
-    loadComponent: () => import('./features/tours/tours.component').then(m => m.ToursComponent)
-  },
-  {
-    path: 'backoffice',
-    loadComponent: () => import('./features/backoffice/backoffice.component').then(m => m.BackofficeComponent)
-  },
-  {
-    path: 'agency',
-    loadComponent: () => import('./features/agency/agency.component').then(m => m.AgencyComponent)
-  },
-  {
-    path: 'login',
-    loadComponent: () => import('./features/auth/login.component').then(m => m.LoginComponent)
-  },
-  {
-    path: '**',
-    redirectTo: ''
-  }
+  { path: '', component: HomeComponent },
+  { path: 'tours', component: ToursComponent },
+  { path: 'backoffice', component: BackofficeComponent },
+  { path: 'agency', component: AgencyComponent },
+  { path: 'login', component: LoginComponent },
+  { path: '**', redirectTo: '' }
 ];

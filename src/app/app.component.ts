@@ -5,28 +5,9 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet, NavbarComponent, FooterComponent],
-  template: `
-    <div class="app-wrapper">
-      <app-navbar></app-navbar>
-      <main class="main-content">
-        <router-outlet></router-outlet>
-      </main>
-      <app-footer></app-footer>
-    </div>
-  `,
-  styles: [`
-    .app-wrapper {
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-    
-    .main-content {
-      flex: 1;
-    }
-  `]
+  templateUrl: './app.component.html',
+  styleUrls: ['./app.component.scss'],
+  imports: [RouterOutlet, NavbarComponent, FooterComponent]
 })
 export class AppComponent {
   title = 'Getatos Safari';
