@@ -21,30 +21,73 @@
         <div class="stat-icon revenue"><i class="fas fa-dollar-sign"></i></div>
         <div class="stat-info">
           <span class="stat-label">Total Revenue</span>
-          <span class="stat-value">$0</span>
+          <span class="stat-value">${{ stats.totalRevenue | number }}</span>
+          <span class="stat-change positive">+{{ stats.revenueChange }}%</span>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-icon bookings"><i class="fas fa-calendar"></i></div>
         <div class="stat-info">
           <span class="stat-label">Total Bookings</span>
-          <span class="stat-value">0</span>
+          <span class="stat-value">{{ stats.totalBookings }}</span>
+          <span class="stat-change positive">+{{ stats.bookingsChange }}%</span>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-icon customers"><i class="fas fa-user-friends"></i></div>
         <div class="stat-info">
           <span class="stat-label">Active Customers</span>
-          <span class="stat-value">0</span>
+          <span class="stat-value">{{ stats.activeCustomers }}</span>
+          <span class="stat-change positive">+{{ stats.customerChange }}%</span>
         </div>
       </div>
       <div class="stat-card">
         <div class="stat-icon rating"><i class="fas fa-star"></i></div>
         <div class="stat-info">
           <span class="stat-label">Average Rating</span>
-          <span class="stat-value">0</span>
+          <span class="stat-value">{{ stats.averageRating }}</span>
+          <span class="stat-change positive">Excellent</span>
         </div>
       </div>
+    </div>
+    <div class="content-section">
+      <div class="section-header">
+        <h3>Recent Bookings</h3>
+      </div>
+      <table class="data-table">
+        <thead>
+          <tr>
+            <th>Reference</th>
+            <th>Customer</th>
+            <th>Tour</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Amount</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let booking of recentBookings">
+            <td class="ref-cell">{{ booking.bookingReference }}</td>
+            <td>
+              <div class="customer-cell">
+                <span class="customer-name">{{ booking.participants[0].firstName }} {{ booking.participants[0].lastName }}</span>
+                <span class="customer-email">{{ booking.participants[0].email }}</span>
+              </div>
+            </td>
+            <td>{{ booking.tour.name }}</td>
+            <td>{{ booking.startDate | date:'mediumDate' }}</td>
+            <td><span class="status-badge" [class]="getStatusClass(booking.status)">{{ booking.status }}</span></td>
+            <td class="amount">${{ booking.totalPrice | number }}</td>
+            <td>
+              <div class="action-buttons">
+                <button class="btn-icon" *ngIf="booking.status === 'PENDING'" title="Confirm"><i class="fas fa-check"></i></button>
+                <button class="btn-icon warning" *ngIf="booking.status === 'CONFIRMED'" title="Cancel"><i class="fas fa-times"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </main>
 </div>
